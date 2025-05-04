@@ -23,13 +23,29 @@ public class PlayerBehavior : MonoBehaviour {
         }
 
         // Fruit movement
+        /*
+         * if (fruit != null) {
+         *     Vector3 fruitOffset = new Vector3(0f, -1f, 0f);
+         *     fruit.transform.position = transform.position + fruitOffset;
+         * }
+         * 
+         * if (Input.GetKeyDown(KeyCode.Space)) {
+         *     fruit = null;
+         * }
+         */
+
+        // Fruit movement bug fixes (replaces fruit movement code)
         if (fruit != null) {
             Vector3 fruitOffset = new Vector3(0f, -1f, 0f);
             fruit.transform.position = transform.position + fruitOffset;
-        }
+            fruit.GetComponent<CircleCollider2D>().enabled = false;
+            fruit.GetComponent<Rigidbody2D>().gravityScale = 0f;
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            fruit = null;
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                fruit.GetComponent<CircleCollider2D>().enabled = true;
+                fruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
+                fruit = null;
+            }
         }
     }
 }
