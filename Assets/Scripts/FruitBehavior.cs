@@ -24,6 +24,7 @@ public class FruitBehavior : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
         if (gameOverTimer >= timeLimit) {
             Debug.Log("Game over");
+            DisplayGameOver();
         }
     }
 
@@ -38,5 +39,10 @@ public class FruitBehavior : MonoBehaviour {
         if (col.gameObject.CompareTag("Game Over")) {
             gameOverTimer += Time.deltaTime;
         }
+    }
+
+    // Display game over text
+    private void DisplayGameOver() {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>().GameOver();
     }
 }

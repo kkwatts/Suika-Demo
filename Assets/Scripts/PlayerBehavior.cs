@@ -10,6 +10,9 @@ public class PlayerBehavior : MonoBehaviour {
     // Randomize fruits (replaces fruit movement code)
     public GameObject[] fruits;
 
+    // Display game over text
+    public GameObject loseText;
+
     // Instantiate fruits
     private GameObject currentFruit;
 
@@ -21,6 +24,9 @@ public class PlayerBehavior : MonoBehaviour {
     void Start() {
         minX = -3.5f;
         maxX = 3.5f;
+
+        // Display game over text
+        loseText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -86,5 +92,10 @@ public class PlayerBehavior : MonoBehaviour {
                 currentFruit = null;
             }
         }
+    }
+
+    // Display game over text
+    public void GameOver() {
+        loseText.SetActive(true);
     }
 }
