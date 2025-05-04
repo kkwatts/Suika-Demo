@@ -13,19 +13,40 @@ public class PlayerBehavior : MonoBehaviour {
     // Instantiate fruits
     private GameObject currentFruit;
 
+    // Player boundaries
+    private float minX;
+    private float maxX;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
-        
+        minX = -3.5f;
+        maxX = 3.5f;
     }
 
     // Update is called once per frame
     void Update() {
         // Movement input
+        /*
+         * if (Input.GetKey(KeyCode.LeftArrow)) {
+         *     transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
+         * }
+         * if (Input.GetKey(KeyCode.RightArrow)) {
+         *     transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
+         * }
+         */
+
+        // Player boundaries (replaces movement input code)
         if (Input.GetKey(KeyCode.LeftArrow)) {
             transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
+            if (transform.position.x < minX) {
+                transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+            }
         }
         if (Input.GetKey(KeyCode.RightArrow)) {
             transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
+            if (transform.position.x > maxX) {
+                transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
+            }
         }
 
         // Instantiate fruits
