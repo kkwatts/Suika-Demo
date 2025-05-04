@@ -639,6 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.01
+  fruit: {fileID: 2034542693}
 --- !u!212 &1019487911
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -843,6 +844,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &2034542693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2163608212143179493, guid: b8284aff691b04fffae54c8ba50704a4, type: 3}
+  m_PrefabInstance: {fileID: 8173389976245780032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8173389976245780032
 PrefabInstance:
   m_ObjectHideFlags: 0
