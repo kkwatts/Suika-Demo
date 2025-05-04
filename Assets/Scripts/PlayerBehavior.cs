@@ -7,6 +7,9 @@ public class PlayerBehavior : MonoBehaviour {
     // Fruit movement
     public GameObject fruit;
 
+    // Instantiate fruits
+    private GameObject currentFruit;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         
@@ -22,6 +25,11 @@ public class PlayerBehavior : MonoBehaviour {
             transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
         }
 
+        // Instantiate fruits
+        if (currentFruit == null) {
+            currentFruit = Instantiate(fruit, transform.position, Quaternion.identity);
+        }
+
         // Fruit movement
         /*
          * if (fruit != null) {
@@ -35,16 +43,16 @@ public class PlayerBehavior : MonoBehaviour {
          */
 
         // Fruit movement bug fixes (replaces fruit movement code)
-        if (fruit != null) {
+        if (currentFruit != null) {
             Vector3 fruitOffset = new Vector3(0f, -1f, 0f);
-            fruit.transform.position = transform.position + fruitOffset;
-            fruit.GetComponent<CircleCollider2D>().enabled = false;
-            fruit.GetComponent<Rigidbody2D>().gravityScale = 0f;
+            currentFruit.transform.position = transform.position + fruitOffset;
+            currentFruit.GetComponent<CircleCollider2D>().enabled = false;
+            currentFruit.GetComponent<Rigidbody2D>().gravityScale = 0f;
 
             if (Input.GetKeyDown(KeyCode.Space)) {
-                fruit.GetComponent<CircleCollider2D>().enabled = true;
-                fruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
-                fruit = null;
+                currentFruit.GetComponent<CircleCollider2D>().enabled = true;
+                currentFruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
+                currentFruit = null;
             }
         }
     }
