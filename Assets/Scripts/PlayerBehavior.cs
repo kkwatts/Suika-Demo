@@ -5,7 +5,10 @@ public class PlayerBehavior : MonoBehaviour {
     public float speed;
 
     // Fruit movement
-    public GameObject fruit;
+    //public GameObject fruit;
+
+    // Randomize fruits (replaces fruit movement code)
+    public GameObject[] fruits;
 
     // Instantiate fruits
     private GameObject currentFruit;
@@ -26,8 +29,15 @@ public class PlayerBehavior : MonoBehaviour {
         }
 
         // Instantiate fruits
+        /*
+         * if (currentFruit == null) {
+         *     currentFruit = Instantiate(fruit, transform.position, Quaternion.identity);
+         * }
+         */
+
+        // Randomize fruits
         if (currentFruit == null) {
-            currentFruit = Instantiate(fruit, transform.position, Quaternion.identity);
+            currentFruit = Instantiate(fruits[Random.Range(0, fruits.Length)], transform.position, Quaternion.identity);
         }
 
         // Fruit movement
