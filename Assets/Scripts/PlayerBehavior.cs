@@ -1,4 +1,6 @@
 using UnityEngine;
+// Points system
+using TMPro;
 
 public class PlayerBehavior : MonoBehaviour {
     // Movement input
@@ -13,12 +15,21 @@ public class PlayerBehavior : MonoBehaviour {
     // Display game over text
     public GameObject loseText;
 
+    // Points system
+    public TextMeshProUGUI pointsText;
+
     // Instantiate fruits
     private GameObject currentFruit;
 
     // Player boundaries
     private float minX;
     private float maxX;
+
+    // Adjust game over
+    private bool canSpawn;
+
+    // Points system
+    private int points;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -27,6 +38,12 @@ public class PlayerBehavior : MonoBehaviour {
 
         // Display game over text
         loseText.SetActive(false);
+
+        // Adjust game over
+        canSpawn = true;
+
+        // Points system
+        points = 0;
     }
 
     // Update is called once per frame
@@ -86,16 +103,27 @@ public class PlayerBehavior : MonoBehaviour {
             currentFruit.GetComponent<CircleCollider2D>().enabled = false;
             currentFruit.GetComponent<Rigidbody2D>().gravityScale = 0f;
 
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            // Adjust game over: add "&& canSpawn"
+            if (Input.GetKeyDown(KeyCode.Space) && canSpawn) {
                 currentFruit.GetComponent<CircleCollider2D>().enabled = true;
                 currentFruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
                 currentFruit = null;
             }
         }
+
+        // Points system
+        pointsText.SetText("Points: " + points);
     }
 
     // Display game over text
     public void GameOver() {
         loseText.SetActive(true);
+        // Adjust game over: add "canSpawn = false"
+        canSpawn = false;
+    }
+
+    // Points system
+    public void AddPoints(int num) {
+        points += num;
     }
 }

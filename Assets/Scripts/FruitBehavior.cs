@@ -59,6 +59,10 @@ public class FruitBehavior : MonoBehaviour {
                     GameObject newFruit = Instantiate(fruits[fruitType], Vector3.Lerp(transform.position, otherFruit.transform.position, 0.5f), Quaternion.identity);
                     newFruit.GetComponent<CircleCollider2D>().enabled = true;
                     newFruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
+
+                    // Points system
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>().AddPoints(fruitType);
+
                     Destroy(otherFruit);
                     Destroy(gameObject);
                 }
