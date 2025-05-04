@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4311224109845530407, guid: b8284aff691b04fffae54c8ba50704a4, type: 3}
+      propertyPath: fruitType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311224109845530407, guid: b8284aff691b04fffae54c8ba50704a4, type: 3}
+      propertyPath: 'fruits.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3763379005541616750}
     - target: {fileID: 5530490559018814859, guid: b8284aff691b04fffae54c8ba50704a4, type: 3}
       propertyPath: m_Radius
       value: 0.52
@@ -69,3 +77,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8284aff691b04fffae54c8ba50704a4, type: 3}
+--- !u!1 &3763379005541616750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2163608212143179493, guid: b8284aff691b04fffae54c8ba50704a4, type: 3}
+  m_PrefabInstance: {fileID: 3043478355842239115}
+  m_PrefabAsset: {fileID: 0}

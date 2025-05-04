@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4311224109845530407}
   m_Layer: 0
   m_Name: Cherry
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,3 +165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff01efaba02c4ef4896695afce643b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fruitType: 2
+  fruits:
+  - {fileID: 3763379005541616750, guid: a8c6da446c7b2684d88204c4deb16d42, type: 3}
+  - {fileID: 2163608212143179493}
+  - {fileID: 7185136634730578674, guid: cd79455d3ce99a94d967a04e0aa3cdd1, type: 3}
+  - {fileID: 2469687287827500102, guid: 1ee5dabfa09bdb648a69ab08c1be282a, type: 3}
+  - {fileID: 2128140750787102401, guid: a3178d31f17355649bb6ff5fa8ea8d91, type: 3}
+  - {fileID: 668002378195516866, guid: 165c164ac131693499dc5bff96b6b6e8, type: 3}
+  - {fileID: 3981519539817799335, guid: 81c1442a83555844ba24dce8a4a3d846, type: 3}
+  - {fileID: 2167579098058705968, guid: 1da1da069297b814d9c199f8fec874b7, type: 3}
+  - {fileID: 8589127649302135254, guid: 6c3e29463a867f94281eb6db16cfabfb, type: 3}
+  - {fileID: 1661813442550548070, guid: bc2d40adba0e36e4e9e02f88a257b6f1, type: 3}

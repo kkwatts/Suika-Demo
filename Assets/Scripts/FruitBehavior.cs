@@ -3,6 +3,10 @@ using UnityEngine;
 using System.Collections;
 
 public class FruitBehavior : MonoBehaviour {
+    // Merge behavior
+    public int fruitType;
+    public GameObject[] fruits;
+
     // Game over
     private float timeLimit;
     private float gameOverTimer;
@@ -44,5 +48,21 @@ public class FruitBehavior : MonoBehaviour {
     // Display game over text
     private void DisplayGameOver() {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>().GameOver();
+    }
+
+    // Merge behavior
+    private void OnCollisionEnter2D(Collision2D col) { 
+        if (col.gameObject.CompareTag("Fruit")) {
+            GameObject otherFruit = col.gameObject;
+            if (fruitType == otherFruit.GetComponent<FruitBehavior>().fruitType && fruitType != 10) {
+                if (transform.position.x > otherFruit.transform.position.x || (transform.position.y > otherFruit.transform.position.y && transform.position.x == otherFruit.transform.position.x)) {
+                    GameObject newFruit = Instantiate(fruits[fruitType], Vector3.Lerp(transform.position, otherFruit.transform.position, 0.5f), Quaternion.identity);
+                    newFruit.GetComponent<CircleCollider2D>().enabled = true;
+                    newFruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
+                    Destroy(otherFruit);
+                    Destroy(gameObject);
+                }
+            }
+        }
     }
 }
