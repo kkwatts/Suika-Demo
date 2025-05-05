@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitType: 2
   fruits:
-  - {fileID: 3763379005541616750, guid: a8c6da446c7b2684d88204c4deb16d42, type: 3}
+  - {fileID: 2163608212143179493, guid: d9b8d117428d9ff4a9f9825382135e66, type: 3}
   - {fileID: 2163608212143179493}
   - {fileID: 7185136634730578674, guid: cd79455d3ce99a94d967a04e0aa3cdd1, type: 3}
   - {fileID: 2469687287827500102, guid: 1ee5dabfa09bdb648a69ab08c1be282a, type: 3}
