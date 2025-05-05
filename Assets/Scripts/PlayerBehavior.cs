@@ -15,6 +15,9 @@ public class PlayerBehavior : MonoBehaviour {
     // Display game over text
     public GameObject loseText;
 
+    // Queue
+    public GameObject queue;
+
     // Points system
     public TextMeshProUGUI pointsText;
 
@@ -86,8 +89,16 @@ public class PlayerBehavior : MonoBehaviour {
          */
 
         // Randomize fruits
+        /*
+         * if (currentFruit == null) {
+         *     currentFruit = Instantiate(fruits[Random.Range(0, fruits.Length)], transform.position, Quaternion.identity);
+         * }
+         */
+
+        // Queue
         if (currentFruit == null) {
-            currentFruit = Instantiate(fruits[Random.Range(0, fruits.Length)], transform.position, Quaternion.identity);
+            currentFruit = Instantiate(fruits[queue.GetComponent<QueueManager>().queuedFruits[0]], transform.position, Quaternion.identity);
+            queue.GetComponent<QueueManager>().UpdateQueue();
         }
 
         // Fruit movement
