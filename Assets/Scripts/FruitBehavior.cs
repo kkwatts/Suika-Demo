@@ -11,11 +11,17 @@ public class FruitBehavior : MonoBehaviour {
     private float timeLimit;
     private float gameOverTimer;
 
+    // Audio
+    private AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         // Game over
         timeLimit = 2f;
         gameOverTimer = 0f;
+
+        // Audio
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,6 +65,9 @@ public class FruitBehavior : MonoBehaviour {
                     GameObject newFruit = Instantiate(fruits[fruitType], Vector3.Lerp(transform.position, otherFruit.transform.position, 0.5f), Quaternion.identity);
                     newFruit.GetComponent<CircleCollider2D>().enabled = true;
                     newFruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
+
+                    // Audio
+                    newFruit.GetComponent<AudioSource>().Play();
 
                     // Points system
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>().AddPoints(fruitType);

@@ -31,6 +31,9 @@ public class PlayerBehavior : MonoBehaviour {
     // Points system
     private int points;
 
+    // Audio
+    private AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         minX = -3.5f;
@@ -44,6 +47,9 @@ public class PlayerBehavior : MonoBehaviour {
 
         // Points system
         points = 0;
+
+        // Audio
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -108,6 +114,9 @@ public class PlayerBehavior : MonoBehaviour {
                 currentFruit.GetComponent<CircleCollider2D>().enabled = true;
                 currentFruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
                 currentFruit = null;
+
+                // Audio
+                audioSource.Play();
             }
         }
 
